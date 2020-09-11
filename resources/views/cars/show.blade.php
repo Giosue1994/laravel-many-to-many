@@ -26,4 +26,4 @@
 </p>
 <a href="{{ route('cars.edit', $car)}}">Edit cars</a>
 <br><br>
-<a href="{{ route('cars.index')}}">go back</a>
+<a href="{{ route('cars.index')}}">Home</a>

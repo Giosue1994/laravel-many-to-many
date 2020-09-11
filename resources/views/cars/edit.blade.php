@@ -56,3 +56,5 @@
 </form>
 <br>
 <a href="{{ route('cars.index') }}">Home</a>
+<br><br>
+<a href="{{ route('cars.show', $car)}}">go back</a>
