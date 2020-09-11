@@ -23,7 +23,7 @@
   <br>
   <br>
   <label>Engine:</label><br>
-  <input type="text" name="engine" value="{{ old('engine') ? old('engine') : $car->enginr}}" placeholder="engine">
+  <input type="text" name="engine" value="{{ old('engine') ? old('engine') : $car->engine}}" placeholder="engine">
   <br>
   <br>
   <label>Plate:</label><br>
@@ -34,7 +34,8 @@
     <span>Type:</span>
     @foreach ($tags as $tag)
       <div>
-        <input type="checkbox" name="tags[]" value="{{$tag->id}}">
+        {{-- se il tag è contenuto nei tag di car checkalo altrimenti rimane vuoto --}}
+        <input type="checkbox" name="tags[]" {{ $car->tags->contains($tag) ? 'checked' : '' }} value="{{$tag->id}}">
         <label>{{$tag->name}}</label>
       </div>
     @endforeach
