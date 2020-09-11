@@ -105,7 +105,13 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $data = $request->all();
+
+        $car->tags()->sync($data['tags']);
+
+        $car->update($data);
+
+        return redirect()->route('cars.show', $car);
     }
 
     /**

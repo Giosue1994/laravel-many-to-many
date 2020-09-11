@@ -1,17 +1,20 @@
 <h1>Dettagli Auto</h1>
 
 <h2> {{ $car->manifacturer}} {{ $car->engine }}</h2>
-<div>
+<h3>Type:</h3>
+<ul>
   @foreach ($car->tags as $tag)
-    <span>Type: {{$tag->name}}</span>
+    <li>{{$tag->name}}</li>
   @endforeach
-</div>
+</ul>
+
+<h3>Anno e targa:</h3>
 <ul>
   <li>Year: {{ $car->year }}</li>
   <li>Plate: {{ $car->plate }}</li>
 </ul>
 
-<h3>Owner details</h3>
+<h2>Owner details</h2>
 <p>
   <b>{{ $car->user->name}}</b>
 </p>
@@ -19,6 +22,6 @@
   For contacts: <br>
   <i>{{ $car->user->email}}</i>
 </p>
-<a href="{{ route('cars.index')}}">go back</a>
-<br><br>
 <a href="{{ route('cars.edit', $car)}}">Edit cars</a>
+<br><br>
+<a href="{{ route('cars.index')}}">go back</a>
