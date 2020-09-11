@@ -20,3 +20,5 @@
   <i>{{ $car->user->email}}</i>
 </p>
 <a href="{{ route('cars.index')}}">go back</a>
+<br><br>
+<a href="{{ route('cars.edit', $car)}}">Edit cars</a>

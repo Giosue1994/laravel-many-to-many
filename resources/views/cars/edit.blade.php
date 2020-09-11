@@ -1,4 +1,4 @@
-<h1>Add auto</h1>
+<h1>Edit auto</h1>
 {{-- Validazione form --}}
 @if ($errors->any())
   <div class="alert alert-danger">
@@ -11,23 +11,23 @@
 @endif
 
 {{-- Add new car form --}}
-<form action="{{route('cars.store')}}" method="post">
+<form action="{{route('cars.update', $car)}}" method="post">
   @csrf
-  @method('POST')
+  @method('PUT')
   <label>Manifacturer:</label><br>
-  <input type="text" name="manifacturer" value="{{ old('manifacturer')}}" placeholder="manifacturer">
+  <input type="text" name="manifacturer" value="{{ old('manifacturer') ? old('manifacturer') : $car->manifacturer }}" placeholder="manifacturer">
   <br>
   <br>
   <label>Year:</label><br>
-  <input type="number" name="year" value="{{ old('year')}}" placeholder="year">
+  <input type="number" name="year" value="{{ old('year') ? old('year') : $car->year}}" placeholder="year">
   <br>
   <br>
   <label>Engine:</label><br>
-  <input type="text" name="engine" value="{{ old('engine')}}" placeholder="engine">
+  <input type="text" name="engine" value="{{ old('engine') ? old('engine') : $car->enginr}}" placeholder="engine">
   <br>
   <br>
   <label>Plate:</label><br>
-  <input type="text" name="plate" value="{{ old('plate')}}" placeholder="plate">
+  <input type="text" name="plate" value="{{ old('plate') ? old('plate') : $car->plate}}" placeholder="plate">
   <br>
   <br>
   <div class="chekboxes">
