@@ -45,7 +45,8 @@
   <div>
     <select name="user_id">
       @foreach ($users as $user)
-        <option value="{{$user->id}}">{{$user->name}}</option>
+        {{-- se lu user id è uguale allo user id che ha l'auto selezionalo altrimenti rimane vuoto --}}
+        <option {{ ($user->id == $car->user->id) ? 'selected' : '' }} value="{{$user->id}}">{{$user->name}}</option>
       @endforeach
     </select>
   </div>
