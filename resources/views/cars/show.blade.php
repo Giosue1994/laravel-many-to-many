@@ -1,12 +1,14 @@
 <h1>Dettagli Auto</h1>
 
 <h2> {{ $car->manifacturer}} {{ $car->engine }}</h2>
-<h3>Type:</h3>
-<ul>
-  @foreach ($car->tags as $tag)
-    <li>{{$tag->name}}</li>
-  @endforeach
-</ul>
+
+@if (!empty($car->tags))
+  <ul>
+    @foreach ($car->tags as $tag)
+      <li>{{$tag->name}}</li>
+    @endforeach
+  </ul>
+@endif
 
 <h3>Anno e targa:</h3>
 <ul>

@@ -107,7 +107,12 @@ class CarController extends Controller
     {
         $data = $request->all();
 
-        $car->tags()->sync($data['tags']);
+        // se data tags non è vuoto esegui il eio_sync altrimenti rimuovilo
+        if (!empty($data['tags'])) {
+          $car->tags()->sync($data['tags']);
+        } else {
+          $car->tags()->detach();
+        }
 
         $car->update($data);
 
